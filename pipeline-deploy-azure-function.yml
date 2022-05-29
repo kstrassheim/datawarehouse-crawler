@@ -1,0 +1,43 @@
+# ASP.NET Core
+
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-18.04'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '2.2.x'
+- task: DotNetCoreCLI@2
+  displayName: 'Publish'
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: '**/DatawarehouseCrawler.AzureFunction.csproj'
+    arguments: "--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)"
+    zipAfterPublish: true
+- task: CopyFiles@2
+  displayName: 'Publish source file'
+  inputs:
+    SourceFolder: 'DatawarehouseCrawler.Console'
+    Contents: 'source.json'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+    OverWrite: true
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish to Artifacts'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'DatawarehouseCrawler.Import.AzureFunction'
+    publishLocation: 'Container'
+
+

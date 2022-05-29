@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Datawarehouse.Import.Console": {
+      "commandName": "Project",
+      "commandLineArgs": "-azuredwh -name:Invoices"
+    }
+  }
+}

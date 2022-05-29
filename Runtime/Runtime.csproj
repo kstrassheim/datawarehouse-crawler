@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <PackageLicenseFile>C:\projects\datawarehouse-crawler\LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Copyright>Copyright 2018 by Konstantin Strassheim</Copyright>
+    <Authors>Konstantin Strassheim</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights" Version="2.10.0" />
+    <PackageReference Include="Microsoft.Azure.KeyVault" Version="3.0.4" />
+    <PackageReference Include="Microsoft.Azure.Services.AppAuthentication" Version="1.3.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.2.0" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DatawarehouseCrawler.Model\DatawarehouseCrawler.Model.csproj" />
+    <ProjectReference Include="..\DatawarehouseCrawler\DatawarehouseCrawler.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,11 @@
+[ /*TODO*/
+  {
+    "name": "some_table_custom_name",
+    "connection": "src1",
+    "sourceName": "table_name",
+    "idFieldName": "id",
+    "dataSyncType": "appendbyid",
+    "type": "fact",
+    "expectedSize": "big"
+  }
+]

@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <Authors>Konstantin Strassheim</Authors>
+    <Copyright>Copyright 2018 by Konstantin Strassheim</Copyright>
+    <PackageLicenseFile>C:\projects\datawarehouse-crawler\LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+</Project>
